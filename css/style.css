@@ -1,0 +1,104 @@
+@font-face {
+	font-family: 'connect';
+	src:url('../fonts/jcalvinconnect.eot?-vep85d');
+	src:url('../fonts/jcalvinconnect.eot?#iefix-vep85d') format('embedded-opentype'),
+		url('../fonts/jcalvinconnect.woff?-vep85d') format('woff'),
+		url('../fonts/jcalvinconnect.ttf?-vep85d') format('truetype'),
+		url('../fonts/jcalvinconnect.svg?-vep85d#jcalvinconnect') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'connect';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-linkedin:before { content: "\e600"; }
+.icon-mail:before { content: "\e601"; }
+.icon-github:before { content: "\e602"; }
+.icon-twitter:before { content: "\e603"; }
+
+body {
+	background:  #f7f7f7 url('../img/bg-tile.jpg') repeat;
+	color: #666;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 100%;
+	text-align: center;
+}
+header {
+	display: block;
+	overflow: hidden;
+	padding-top: 150px;
+}
+header h1 {
+	color: #555;
+	font-size: 48px;
+	letter-spacing: -3px;
+	margin: 0;
+	text-transform: uppercase;
+	position: relative;
+}
+header p {
+	line-height: 1.75em;
+	margin: 0;
+}
+ul {
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 0;
+	width: 175px;
+}
+ul li {
+	float: left;
+	list-style: none;
+	margin-left: 15px;
+}
+ul li:first-child {
+	margin-left: 0;
+}
+li a {
+	display: block;
+	text-decoration: none;
+	color: #444;
+	font-size: 32px;
+	-webkit-transition: color .15s linear;
+	-moz-transition: color .15s linear;
+	-o-transition: color .15s linear;
+	transition: color .15s linear;
+}
+ul li a:hover {
+	color: #333;
+}
+footer {
+	clear: both;
+	padding-top: 15px;
+}
+footer .copyright {
+	color: #999;
+	font-size: 12px;
+}
+
+@media screen and (max-width: 768px) {
+	header {
+		padding-top: 75px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	header {
+		padding-top: 25px;
+	}
+	header h1 {
+		font-size: 32px;
+	}
+	header p {
+		line-height: 1.45em;
+	}
+}
