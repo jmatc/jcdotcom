@@ -1,0 +1,21 @@
+default:
+  - build
+  - 'connect:server'
+  - watch
+build:
+  - sass
+  - hogan
+  - js
+dist:
+  - build
+  - committers
+  - changelog
+start:
+  - build
+  - 'connect:keepalive'
+test:
+  - jshint
+  - jsonlint
+js:
+  - 'requirejs:my-feature-amd'
+  - 'requirejs:my-feature-amd-min'
