@@ -3,7 +3,7 @@ default:
   - 'connect:server'
   - watch
 build:
-  - sass
+  # - sass
   - hogan
   - js
 dist:
@@ -17,5 +17,5 @@ test:
   - jshint
   - jsonlint
 js:
-  - 'requirejs:my-feature-amd'
-  - 'requirejs:my-feature-amd-min'
+  - 'requirejs:<%= pkg.name %>-amd'
+  - 'requirejs:<%= pkg.name %>-amd-min'

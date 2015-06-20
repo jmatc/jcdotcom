@@ -24,7 +24,7 @@ module.exports = function (grunt, options) {
 	        'jquery': 'empty:',
 	        'hogan': 'empty:'
 	      },
-	      preserveLicenseComments: true,
+	      preserveLicenseComments: false,
 	      cjsTranslate: true,
 	      keepAmdefine: false,
 	      generateSourceMaps: true
