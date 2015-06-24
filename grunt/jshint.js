@@ -3,7 +3,7 @@ module.exports = function (grunt, options) {
 		files: [
 			'Gruntfile.js',
 			'grunt/*.js',
-			'lib/**/*.js'
+			'lib/{,**/}*.js'
 		],
 		options: {
 			laxbreak: false,

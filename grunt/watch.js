@@ -1,14 +1,15 @@
 module.exports = function (grunt, options) {
 	return {
 		files: [
-			'Gruntfile.js',
 			'grunt/*',
 			'test/*',
 			'model/*.json',
-			'lib/{,**/}*.js',
+			'*.{scss,less}',
+			'views/*.{mustache,hbs}',
 			'template/{,**/}*.{mustache,json}',
-			'views/*.mustache',
-			'*.less',
+			'Gruntfile.js',
+			'Gruntfile.coffee',
+			'lib/{,**/}*.{js,coffee}'
 		],
 		tasks: ['build'],
 		options: {

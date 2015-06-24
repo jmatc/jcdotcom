@@ -3,6 +3,7 @@ default:
   - 'connect:server'
   - watch
 build:
+  - createFeatureFile
   # - sass
   - hogan
   - js

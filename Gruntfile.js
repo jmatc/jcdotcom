@@ -9,6 +9,5 @@ module.exports = function(grunt) {
 			pattern: 'grunt-!(cli)*'
 		}
 	};
-	grunt.loadTasks('grunt/tasks');
 	require('load-grunt-config')(grunt, options);
 };
