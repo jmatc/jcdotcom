@@ -18,5 +18,5 @@ test:
   - jshint
   - jsonlint
 js:
-  - 'requirejs:<%= cfg.name %>-amd'
-  - 'requirejs:<%= cfg.name %>-amd-min'
+  - 'requirejs:<%= pkg.name %>-amd'
+  - 'requirejs:<%= pkg.name %>-amd-min'
