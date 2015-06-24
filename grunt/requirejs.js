@@ -1,10 +1,10 @@
 module.exports = function (grunt, options) {
 	return {
-		'<%= pkg.name %>-amd': {
+		'<%= cfg.name %>-amd': {
 			options: {
 				baseUrl: 'lib',
-	      name: '<%= pkg.name %>',
-				out: 'dist/<%= pkg.name %>.amd.js',
+	      name: '<%= cfg.name %>',
+				out: 'dist/<%= cfg.name %>.amd.js',
 				optimize: 'none',
 				paths: {
 	        'jquery': 'empty:',
@@ -14,11 +14,11 @@ module.exports = function (grunt, options) {
 				keepAmdefine: false
 			}
 		},
-		'<%= pkg.name %>-amd-min': {
+		'<%= cfg.name %>-amd-min': {
 			options: {
 				baseUrl: 'lib',
-	      name: '<%= pkg.name %>',
-				out: 'dist/<%= pkg.name %>.amd.min.js',
+	      name: '<%= cfg.name %>',
+				out: 'dist/<%= cfg.name %>.amd.min.js',
 				optimize: 'uglify2',
 				paths: {
 	        'jquery': 'empty:',

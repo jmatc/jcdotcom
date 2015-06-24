@@ -1,17 +1,18 @@
 {
-  "name": "",
+  "name": "jacket",
   "version": "0.0.1",
-  "description": "",
+  "description": "A ready to go build process and project wrapper for your front end project",
   "author": {
-    "name": ""
+    "name": "Jonathan Calvin",
+    "email": "jmatc1@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/jmatc/jacket.git"
   },
   "bugs": {
-    "url": "",
-    "email": ""
+    "url": "https://github.com/jmatc/jacket/issues",
+    "email": "jmatc1@gmail.com"
   },
   "engines": {
     "node": ">= 0.10.0"
