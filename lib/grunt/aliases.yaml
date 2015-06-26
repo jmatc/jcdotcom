@@ -1,12 +1,8 @@
 default:
   - build
-js:
-  - uglify
+  - watch
 build:
-  - js
   - sass
-  - imagemin
-  - staticPages
 dist:
   - build
   - committers

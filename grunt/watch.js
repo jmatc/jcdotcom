@@ -1,21 +1,24 @@
 module.exports = function (grunt, options) {
 	return {
-		files: [
-			'grunt/*',
-			'test/*',
-			'model/*.json',
-			'*.{scss,less}',
-			'views/*.{mustache,hbs}',
-			'template/{,**/}*.{mustache,json}',
-			'Gruntfile.js',
-			'Gruntfile.coffee',
-			'lib/{,**/}*.{js,coffee}'
-		],
-		tasks: ['build'],
-		options: {
-			livereload: true,
-      spawn: false,
-      debounceDelay: 100
+		sass: {
+			files: 'assets/{,**/}*.scss',
+			tasks: ['sass']
+		},
+		templates: {
+			files: '{,**/}*.jade',
+			tasks: ['jade', 'default']
+		},
+		js: {
+			files: [
+				'Gruntfile.js',
+				'grunt/*',
+				'lib/*.js'
+			],
+			tasks: ['uglify']
+		},
+		altAssets: {
+			files: 'assets/images/*',
+			tasks: ['imagemin']
 		}
 	};
 };
