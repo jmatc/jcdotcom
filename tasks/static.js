@@ -1,7 +1,7 @@
 /**
  *  grunt.registerTask 'staticPages'
  *
- *  Builds the sites Homepage, and About Page
+ *  Builds the sites Homepage, and Portfilio Page
  *
  */
 module.exports = function (grunt) {
@@ -25,32 +25,39 @@ module.exports = function (grunt) {
       }
     });
 
+    function generateBasic(msg, src, dest) {
+      grunt.log.ok(msg);
+
+      var tpl = src;
+      var out = jade.compile(grunt.file.read(src), {
+        filename: tpl
+      })({
+        page:'index'
+      });
+
+      grunt.file.write(dest, out);
+      grunt.log.ok('✔ Successful');
+    }
+
     // logs tasks subhead for separation in output
     grunt.log.subhead('Beginning Static Page Generation');
 
     /**
      *  Builds the sites Homepage
      */
-
-    // log the homepage build to the user
-    grunt.log.ok('Building homepage...');
-
-    // builds the homepage
-    var homeTpl = 'template/index.jade';
-    var homeOut = jade.compile(grunt.file.read(homeTpl), {
-      filename: homeTpl
-    })({
-      page:'index'
-    });
-
-    grunt.file.write('dist/index.html', homeOut);
-    grunt.log.ok('✔ Homepage built successfully');
+    generateBasic(
+      'Building homepage...',
+      'template/index.jade',
+      'dist/index.html'
+    );
 
     /**
-     *  Builds the sites About Page
+     *  Builds the sites Portfilio Page
      */
-
-    // log the about page build to the user
-    grunt.log.ok('Building about page...');
+    generateBasic(
+      'Building portfolio page...',
+      'template/portfolio.jade',
+      'dist/portfolio.html'
+    );
   });
 };
