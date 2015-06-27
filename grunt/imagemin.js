@@ -1,4 +1,4 @@
-module.exports = function (grunt, options) {
+module.exports = function () {
   return {
     options: {
       pngquant: false,
@@ -15,5 +15,5 @@ module.exports = function (grunt, options) {
         }
       ]
     }
-  }
+  };
 };

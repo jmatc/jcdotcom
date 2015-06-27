@@ -1,4 +1,4 @@
-module.exports = function (grunt, options) {
+module.exports = function () {
   return {
     options: {
       noCache: true
@@ -11,5 +11,5 @@ module.exports = function (grunt, options) {
         }
       ]
     }
-  }
+  };
 };
