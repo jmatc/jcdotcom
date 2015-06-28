@@ -1,7 +1,7 @@
 @import 'typography';
 
 body {
-  background: radial-gradient(circle farthest-side at top,rgba(255,255,255,0.45) 0,rgba(211,213,218,0) 100%);
+  background: radial-gradient(circle farthest-side at top,rgba(255,255,255,0.45) 0,rgba(207, 209, 214, 0) 100%);
   color: #333;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: antialiased;
@@ -49,7 +49,7 @@ h1, h2, h3 {
   }
 
   .intro-text:after {
-    background: radial-gradient(circle farthest-side at right, rgba(255, 255, 255, 0.325) 0, rgba(211, 213, 218, 0) 100%);
+    background: radial-gradient(circle farthest-side at right, rgba(255, 255, 255, 0.325) 0, rgba(207, 209, 214, 0) 100%);
     content: '';
     left: 0;
     height: 100%;
@@ -92,16 +92,70 @@ h1, h2, h3 {
   li {
   	float: left;
   	list-style: none;
-    margin-left: 10px;
+    margin-left: 15px;
 
     &:first-child {
       margin-left: 0;
     }
+
+    a {
+      color: #555;
+      display: block;
+      font-size: 26px;
+      line-height: 1;
+      opacity: .9;
+      overflow: hidden;
+      -webkit-transition: color .1s linear;
+      -moz-transition: color .1s linear;
+      -o-transition: color .1s linear;
+      transition: color .1s linear;
+      text-decoration: none;
+      width: 27px;
+      visibility: hidden;
+
+      &:before {
+        visibility: visible;
+      }
+    }
+    a:hover {
+      color: #333;
+    }
+
+    &.linkedin {
+      a {
+        color: #007bb6;
+        &:hover {
+          color: darken(#007bb6, 4%);
+        }
+      }
+    }
+    &.twitter {
+      a {
+        color: #00aced;
+        &:hover {
+          color: darken(#00aced, 4%);
+        }
+      }
+    }
+    &.mail {
+      a {
+        color: #ff3e34;
+        &:hover {
+          color: darken(#ff3e34, 4%);
+        }
+      }
+    }
   }
   li.tooltip {
+    opacity: .5;
+    transition: opacity .25s ease;
     font: {
       size: 18px;
       weight: 300;
+    }
+
+    &.shown {
+      opacity: 1;
     }
 
     &.linkedin {
@@ -110,32 +164,9 @@ h1, h2, h3 {
     &.twitter {
       color: #00aced;
     }
-    &.email {
+    &.mail {
       color: #ff3e34;
     }
-  }
-  a {
-  	color: #555;
-    display: block;
-  	font-size: 26px;
-    height: 33px;
-    line-height: 1;
-    opacity: .9;
-    overflow: hidden;
-  	-webkit-transition: color .15s linear;
-  	-moz-transition: color .15s linear;
-  	-o-transition: color .15s linear;
-  	transition: color .15s linear;
-  	text-decoration: none;
-    width: 33px;
-    visibility: hidden;
-
-    &:before {
-      visibility: visible;
-    }
-  }
-  a:hover {
-  	color: #333;
   }
 }
 

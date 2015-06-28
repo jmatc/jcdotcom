@@ -12,7 +12,7 @@ module.exports = function () {
 			files: [
 				'Gruntfile.js',
 				'grunt/*',
-				'lib/{,**/}.js'
+				'lib/*.js'
 			],
 			tasks: ['uglify']
 		},

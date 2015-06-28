@@ -27,7 +27,7 @@
   content: "\e603"; }
 
 body {
-  background: radial-gradient(circle farthest-side at top, rgba(255, 255, 255, 0.45) 0, rgba(211, 213, 218, 0) 100%);
+  background: radial-gradient(circle farthest-side at top, rgba(255, 255, 255, 0.45) 0, rgba(207, 209, 214, 0) 100%);
   color: #333;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: antialiased;
@@ -65,7 +65,7 @@ h1, h2, h3 {
     max-width: 460px;
     position: relative; }
   #intro .intro-text:after {
-    background: radial-gradient(circle farthest-side at right, rgba(255, 255, 255, 0.325) 0, rgba(211, 213, 218, 0) 100%);
+    background: radial-gradient(circle farthest-side at right, rgba(255, 255, 255, 0.325) 0, rgba(207, 209, 214, 0) 100%);
     content: '';
     left: 0;
     height: 100%;
@@ -95,37 +95,52 @@ h1, h2, h3 {
   #main-navigation li {
     float: left;
     list-style: none;
-    margin-left: 10px; }
+    margin-left: 15px; }
     #main-navigation li:first-child {
       margin-left: 0; }
+    #main-navigation li a {
+      color: #555;
+      display: block;
+      font-size: 26px;
+      line-height: 1;
+      opacity: .9;
+      overflow: hidden;
+      -webkit-transition: color .1s linear;
+      -moz-transition: color .1s linear;
+      -o-transition: color .1s linear;
+      transition: color .1s linear;
+      text-decoration: none;
+      width: 27px;
+      visibility: hidden; }
+      #main-navigation li a:before {
+        visibility: visible; }
+    #main-navigation li a:hover {
+      color: #333; }
+    #main-navigation li.linkedin a {
+      color: #007bb6; }
+      #main-navigation li.linkedin a:hover {
+        color: #006da2; }
+    #main-navigation li.twitter a {
+      color: #00aced; }
+      #main-navigation li.twitter a:hover {
+        color: #009dd9; }
+    #main-navigation li.mail a {
+      color: #ff3e34; }
+      #main-navigation li.mail a:hover {
+        color: #ff2b20; }
   #main-navigation li.tooltip {
+    opacity: .5;
+    transition: opacity .25s ease;
     font-size: 18px;
     font-weight: 300; }
+    #main-navigation li.tooltip.shown {
+      opacity: 1; }
     #main-navigation li.tooltip.linkedin {
       color: #007bb6; }
     #main-navigation li.tooltip.twitter {
       color: #00aced; }
-    #main-navigation li.tooltip.email {
+    #main-navigation li.tooltip.mail {
       color: #ff3e34; }
-  #main-navigation a {
-    color: #555;
-    display: block;
-    font-size: 26px;
-    height: 33px;
-    line-height: 1;
-    opacity: .9;
-    overflow: hidden;
-    -webkit-transition: color .15s linear;
-    -moz-transition: color .15s linear;
-    -o-transition: color .15s linear;
-    transition: color .15s linear;
-    text-decoration: none;
-    width: 33px;
-    visibility: hidden; }
-    #main-navigation a:before {
-      visibility: visible; }
-  #main-navigation a:hover {
-    color: #333; }
 
 #colophon p {
   font-size: 11px;
