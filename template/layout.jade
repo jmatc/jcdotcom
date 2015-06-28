@@ -16,23 +16,10 @@ html(lang='en')
 
   body(class=locals.page ? 'page-' + locals.page + (locals.page === 'index' ? '' : ' page-secondary') : '')
     #wrap
-      section#intro.group(role="banner")
-        div.intro-text
-          h1.title Jonathan Calvin
-          h2.subhead.pull Front End Software Engineer
-            span one Event at a time
-      block content
-      nav#main-navigation(role="navigation")
-        ul.group
-          li
-            a.icon-github(href="https://github.com/jmatc", title="GitHub", target='blank') GitHub
-          li.linkedin
-            a.icon-linkedin(href="https://www.linkedin.com/in/jmatc", title="LinkedIn", target='blank') LinkedIn
-          li.twitter
-            a.icon-twitter(href="https://twitter.com/jmatc", title="Twitter", target='blank') Twitter
-          li.mail
-            a.icon-mail(href="mailto:jc@jonathancalvin.com", title="Email") Mail
-          li.tooltip
-      include inc/footer
+      .section.left
+        include inc/header
+      .section.right
+        include inc/single
+        //- include inc/blog
     script(src='js/app.js')
     

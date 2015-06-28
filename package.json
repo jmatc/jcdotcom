@@ -55,6 +55,7 @@
     "marked": "^0.3.3",
     "matchdep": "~0.3.0",
     "method-override": "~2.2.0",
+    "mongojs": "^1.0.2",
     "morgan": "~1.5.1",
     "node-schedule": "~0.1.13",
     "request": "~2.27.0",

@@ -1,13 +1,24 @@
-@import 'typography';
+@import
+  'helpers',
+  'color',
+  'typography';
+
+html,
+body,
+#wrap {
+  height: 100%;
+}
 
 body {
-  background: radial-gradient(circle farthest-side at top,rgba(255,255,255,0.45) 0,rgba(207, 209, 214, 0) 100%);
-  color: #333;
+  @extend %group;
+  background: $bg-main;
+  color: $font;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: antialiased;
   margin: 0;
   font: {
     family: 'Open Sans', sans-serif;
+    weight: $std-weight;
   }
   line-height: 1.5;
 }
@@ -17,30 +28,41 @@ body {
   position: relative;
 }
 
-.group:before,
-.group:after {
-  content: '';
-  display: table;
-  clear: both;
-}
-
-h1, h2, h3 {
-  color: #444;
-  font-weight: 600;
-  letter-spacing: -0.06em;
-  line-height: 1.1;
-  letter-spacing: -0.055em;
-}
-
 #wrap {
-  height: 178px;
-  margin-top: -140px;
+  @extend %group;
+
+  .section {
+    box-sizing: border-box;
+    height: 100%;
+
+    &.left,
+    &.right {
+      float: left;
+    }
+
+    &.left {
+      width: 48%;
+    }
+    &.right {
+      background-color: #fdfdfd;
+      border-left: 1px solid #f6f6f6;
+      overflow-y: scroll;
+      padding: 30px 30px 60px;
+      width: 52%;
+    }
+  }
+}
+
+#header-content {
+  height: 171px;
+  margin-top: -125px;
   position: absolute;
-  left: 4.5%;
   top: 50%;
+  left: 5%;
 }
 
 #intro {
+  @extend %group;
   margin-bottom: 27px;
 
   .intro-text {
@@ -49,7 +71,7 @@ h1, h2, h3 {
   }
 
   .intro-text:after {
-    background: radial-gradient(circle farthest-side at right, rgba(255, 255, 255, 0.325) 0, rgba(207, 209, 214, 0) 100%);
+    background: radial-gradient(circle farthest-side at right, rgba(255, 255, 255, 0.325) 0, rgba(250, 250, 250, 0) 100%);
     content: '';
     left: 0;
     height: 100%;
@@ -66,7 +88,7 @@ h1, h2, h3 {
     text-shadow: 0 1px 2px rgba(255, 255, 255, 1);
   }
   .subhead {
-    font-weight: 300;
+    font-weight: $std-weight;
     margin: 18px 0 0;
     text-shadow: 0 1px 0 #fff;
 
@@ -81,11 +103,12 @@ h1, h2, h3 {
   }
 }
 
-#main-navigation {
+#social-navigation {
   left: -5px;
   position: relative;
 
   ul {
+    @extend %group;
     margin: 0;
   	padding: 0;
   }
@@ -118,30 +141,30 @@ h1, h2, h3 {
       }
     }
     a:hover {
-      color: #333;
+      color: $font;
     }
 
     &.linkedin {
       a {
-        color: #007bb6;
+        color: $linkedin;
         &:hover {
-          color: darken(#007bb6, 4%);
+          color: darken($linkedin, 4%);
         }
       }
     }
     &.twitter {
       a {
-        color: #00aced;
+        color: $twitter;
         &:hover {
-          color: darken(#00aced, 4%);
+          color: darken($twitter, 4%);
         }
       }
     }
     &.mail {
       a {
-        color: #ff3e34;
+        color: $mail;
         &:hover {
-          color: darken(#ff3e34, 4%);
+          color: darken($mail, 4%);
         }
       }
     }
@@ -151,7 +174,6 @@ h1, h2, h3 {
     transition: opacity .25s ease;
     font: {
       size: 18px;
-      weight: 300;
     }
 
     &.shown {
@@ -159,21 +181,72 @@ h1, h2, h3 {
     }
 
     &.linkedin {
-      color: #007bb6;
+      color: $linkedin;
     }
     &.twitter {
-      color: #00aced;
+      color: $twitter;
     }
     &.mail {
-      color: #ff3e34;
+      color: $mail;
     }
   }
 }
 
-#colophon {
-  p {
-    font-size: 11px;
-    letter-spacing: .025em;
-    margin: 2px 0;
+.entry-title {
+  line-height: 1.35;
+
+  a {
+    color: $lt-font;
+  }
+  a:hover {
+    color: $link-hover;
+  }
+}
+
+// blog styles
+#article-feed {
+  ul {
+    @extend %group;
+    @extend %flush;
+
+    > li {
+      box-sizing: border-box;
+      float: left;
+      list-style: none;
+      padding: 20px 20px 0;
+      width: 50%;
+    }
+  }
+
+  blockquote {
+    @extend %flush;
+
+    .entry-image {
+      width: 40px;
+      height: 40px;
+      display: inline-block;
+      float: left;
+      margin: 0 15px 0 0;
+      border-radius: 20px;
+      box-shadow: 0 0 4px #ddd;
+      border: 1px solid #fafafa;
+
+      img {
+        height: auto;
+        width: 100%;
+      }
+    }
+    p {
+      margin: 0;
+    }
+  }
+}
+
+#article-detail {
+  article {
+    padding: 0 20px 0;
+  }
+  .entry-title {
+    font-size: 32px;
   }
 }

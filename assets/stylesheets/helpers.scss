@@ -1,0 +1,11 @@
+%group:before,
+%group:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+%flush {
+  margin: 0;
+  padding: 0;
+}

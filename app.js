@@ -4,19 +4,21 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var routes = require('./server/routes');
+
 var app = express();
 
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'dist')));
+app
+  .use(logger('dev'))
+  .use(bodyParser.json())
+  .use(bodyParser.urlencoded({ extended: false }))
+  .use(cookieParser())
+  .use(express.static(path.join(__dirname, 'dist')));
+
+app.use('/api/posts', routes.apiPosts)
 
 app.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
-});
-app.get('/portfolio', function(req, res) {
-  res.render('portfolio', { title: 'Express' });
 });
 
 // catch 404 and forward to error handler
@@ -49,6 +51,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;
