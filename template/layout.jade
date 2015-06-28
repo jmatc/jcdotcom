@@ -5,11 +5,30 @@ html(lang='en')
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
     title= (locals.title ? locals.title + ' - ' : '') + 'Jonathan Calvin - Front End Software Engineer'
-    link(rel='stylesheet', href='/css/main.css')
-    link(rel='shortcut icon', href='/favicon.ico', type='image/x-icon')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600')
+    link(rel='stylesheet', href='css/app.css')
+    link(rel='shortcut icon', href='favicon.ico', type='image/x-icon')
     link(href='/rss', rel='alternate', title='Jonathan Calvin Blog Feed', type='application/atom+xml')
 
   body(class=locals.page ? 'page-' + locals.page + (locals.page === 'index' ? '' : ' page-secondary') : '')
-    include inc/header
-    block content
-    include inc/footer
+    #wrap
+      section#intro.group(role="banner")
+        div.intro-text
+          h1.title Jonathan Calvin
+          h2.subhead.pull Front End Software Engineer
+            span one Event at a time
+      block content
+      nav#main-navigation(role="navigation")
+        ul.group
+          li
+            a.icon-github(href="https://github.com/jmatc", title="GitHub", target='blank') Gihtub
+          li
+            a.icon-linkedin(href="https://www.linkedin.com/in/jmatc", title="LinkedIn", target='blank') LinkedIn
+          li
+            a.icon-twitter(href="https://twitter.com/jmatc", title="Twitter", target='blank') Twitter
+          li
+            a.icon-mail(href="mailto:jc@jonathancalvin.com", title="Email") Email Me
+          //- li.tooltip Github
+      include inc/footer
+    script(src='js/app.js')
+    

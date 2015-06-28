@@ -1,4 +1,148 @@
+@import 'typography';
+
 body {
-  background: #fff;
-  color: blue;
+  background: radial-gradient(circle farthest-side at top,rgba(255,255,255,0.45) 0,rgba(211,213,218,0) 100%);
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+  margin: 0;
+  font: {
+    family: 'Open Sans', sans-serif;
+  }
+  line-height: 1.5;
+}
+
+.pull {
+  left: -6px;
+  position: relative;
+}
+
+.group:before,
+.group:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+h1, h2, h3 {
+  color: #444;
+  font-weight: 600;
+  letter-spacing: -0.06em;
+  line-height: 1.1;
+  letter-spacing: -0.055em;
+}
+
+#wrap {
+  height: 178px;
+  margin-top: -140px;
+  position: absolute;
+  left: 4.5%;
+  top: 50%;
+}
+
+#intro {
+  margin-bottom: 27px;
+
+  .intro-text {
+    max-width: 460px;
+    position: relative;
+  }
+
+  .intro-text:after {
+    background: radial-gradient(circle farthest-side at right, rgba(255, 255, 255, 0.325) 0, rgba(211, 213, 218, 0) 100%);
+    content: '';
+    left: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .title {
+    font: {
+      size: 68px;
+    }
+    margin: 0;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 1);
+  }
+  .subhead {
+    font-weight: 300;
+    margin: 18px 0 0;
+    text-shadow: 0 1px 0 #fff;
+
+    span {
+      color: #666;
+      font: {
+        size: 18px;
+        style: italic;
+      }
+      padding-left: 9px;
+    }
+  }
+}
+
+#main-navigation {
+  left: -5px;
+  position: relative;
+
+  ul {
+    margin: 0;
+  	padding: 0;
+  }
+  li {
+  	float: left;
+  	list-style: none;
+    margin-left: 10px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+  li.tooltip {
+    font: {
+      size: 18px;
+      weight: 300;
+    }
+
+    &.linkedin {
+      color: #007bb6;
+    }
+    &.twitter {
+      color: #00aced;
+    }
+    &.email {
+      color: #ff3e34;
+    }
+  }
+  a {
+  	color: #555;
+    display: block;
+  	font-size: 26px;
+    height: 33px;
+    line-height: 1;
+    opacity: .9;
+    overflow: hidden;
+  	-webkit-transition: color .15s linear;
+  	-moz-transition: color .15s linear;
+  	-o-transition: color .15s linear;
+  	transition: color .15s linear;
+  	text-decoration: none;
+    width: 33px;
+    visibility: hidden;
+
+    &:before {
+      visibility: visible;
+    }
+  }
+  a:hover {
+  	color: #333;
+  }
+}
+
+#colophon {
+  p {
+    font-size: 11px;
+    letter-spacing: .025em;
+    margin: 2px 0;
+  }
 }

@@ -1,0 +1,26 @@
+@font-face {
+	font-family: 'connect';
+	src:url('../fonts/jcalvinconnect.eot?-vep85d');
+	src:url('../fonts/jcalvinconnect.eot?#iefix-vep85d') format('embedded-opentype'),
+		url('../fonts/jcalvinconnect.woff?-vep85d') format('woff'),
+		url('../fonts/jcalvinconnect.ttf?-vep85d') format('truetype'),
+		url('../fonts/jcalvinconnect.svg?-vep85d#jcalvinconnect') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'connect';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-linkedin:before { content: "\e600"; }
+.icon-mail:before { content: "\e601"; }
+.icon-github:before { content: "\e602"; }
+.icon-twitter:before { content: "\e603"; }

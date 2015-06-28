@@ -6,13 +6,13 @@ module.exports = function () {
 		},
 		templates: {
 			files: '{,**/}*.jade',
-			tasks: ['jade', 'default']
+			tasks: ['staticPages']
 		},
 		js: {
 			files: [
 				'Gruntfile.js',
 				'grunt/*',
-				'lib/*.js'
+				'lib/{,**/}.js'
 			],
 			tasks: ['uglify']
 		},
