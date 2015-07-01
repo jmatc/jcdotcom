@@ -2,11 +2,11 @@ default:
   - build
 js:
   - uglify
+  - browserify
 build:
   - js
   - sass
   - imagemin
-  - staticPages
 dist:
   - build
   - committers

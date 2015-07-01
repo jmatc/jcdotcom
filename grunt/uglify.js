@@ -1,10 +1,14 @@
-module.exports = function () {
+module.exports = function (options) {
   return {
+    options: {
+      mangle: false
+    },
     scripts: {
-      src: [
-        'lib/{,**/}*.js'
-      ],
-      dest: 'dist/js/app.js'
+      files: {
+        'dist/js/vendor/jquery-min.js': ['node_modules/jquery/dist/jquery.min.js'],
+        'dist/js/vendor/underscore-min.js': ['node_modules/underscore/underscore-min.js'],
+        'dist/js/vendor/backbone-min.js': ['node_modules/backbone/backbone-min.js'],
+      }
     }
   };
 };

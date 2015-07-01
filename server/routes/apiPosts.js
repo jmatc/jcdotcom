@@ -12,15 +12,15 @@ postsAll = function (req, res) {
 };
 
 postsOne = function (req, res) {
-  var postId = dbPosts.ObjectId(req.params.id);
-  dbPosts.posts.findOne({ "_id": postId }, function (err, post) {
+  var postSlug = req.params.postSlug;
+  dbPosts.posts.findOne({ "postSlug": req.params.postSlug }, function (err, post) {
     if (err) return;
     res.json(post);
   });
 };
 
 router
-  .get('/:id', postsOne)
+  .get('/:postSlug', postsOne)
   .get('/', postsAll);
 
 module.exports = router;

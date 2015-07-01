@@ -9,3 +9,15 @@
   margin: 0;
   padding: 0;
 }
+
+%viewvisible {
+  opacity: 1;
+  transition: all .175s ease;
+  visibility: visible;
+}
+
+%viewhidden {
+  opacity: 0;
+  transition: all .12s ease;
+  visibility: hidden;
+}

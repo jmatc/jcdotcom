@@ -16,10 +16,25 @@ html(lang='en')
 
   body(class=locals.page ? 'page-' + locals.page + (locals.page === 'index' ? '' : ' page-secondary') : '')
     #wrap
-      .section.left
-        include inc/header
-      .section.right
-        include inc/single
-        //- include inc/blog
+      block content
+
+    script#feed(type='text/template')
+      header
+        h2.entry-title
+          a(href!='<%= postSlug %>') <%= postTitle %>
+        span.post-date <%= postDate %>
+          span.icon-clock
+      blockquote
+        .entry-image
+          img(src!='img/<%= postImage %>')
+        <%- postExcerpt %>
+
+    script#single(type='text/template')
+      article(class!='entry-content slug-<%= postSlug %>')
+        header
+          .entry-image
+            img(src!='img/<%= postImage %>')
+          h1.entry-title <%= postTitle %>
+        <%= postContent %>
     script(src='js/app.js')
     

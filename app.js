@@ -9,23 +9,26 @@ var routes = require('./server/routes');
 var app = express();
 
 app
+  .set('views', path.join(__dirname, 'template'))
+  .set('view engine', 'jade');
+
+app
   .use(logger('dev'))
   .use(bodyParser.json())
   .use(bodyParser.urlencoded({ extended: false }))
   .use(cookieParser())
   .use(express.static(path.join(__dirname, 'dist')));
 
-app.use('/api/posts', routes.apiPosts)
-
-app.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
-});
+app
+  .use('/api/posts', routes.apiPosts)
+  .use(':postSlug', routes.posts)
+  .use('/', routes.posts);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
 
 // error handlers

@@ -4,17 +4,13 @@ module.exports = function () {
 			files: 'assets/{,**/}*.scss',
 			tasks: ['sass']
 		},
-		templates: {
-			files: '{,**/}*.jade',
-			tasks: ['staticPages']
-		},
 		js: {
 			files: [
 				'Gruntfile.js',
 				'grunt/*',
 				'lib/*.js'
 			],
-			tasks: ['uglify']
+			tasks: ['browserify']
 		},
 		altAssets: {
 			files: 'assets/images/*',
