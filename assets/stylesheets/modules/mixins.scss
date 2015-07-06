@@ -1,0 +1,118 @@
+@mixin rounded($radius) {
+  background-clip: padding-box; // prevents color from leaking outside element.
+  border-radius: $radius;
+}
+
+@mixin background-position($x, $y) {
+  background-position: $x $y;
+}
+
+@mixin background-size($width, $height) {
+  background-size: $width $height;
+}
+
+@mixin box-shadow($shadow...) {
+  box-shadow: $shadow;
+}
+
+@mixin box-sizing($box) {
+  box-sizing: $box;
+}
+
+@mixin linear-bg-gradient($top, $bottom) {
+  background: $top;
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YzNDc1ZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNDJlNDgiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-linear-gradient(top,  $top 0%, $bottom 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom));
+  background: -webkit-linear-gradient(top,  $top 0%,$bottom 100%);
+  background: -o-linear-gradient(top,  $top 0%,$bottom 100%);
+  background: -ms-linear-gradient(top,  $top 0%,$bottom 100%);
+  background: linear-gradient(to bottom,  $top 0%,$bottom 100%);
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  filter: alpha(opacity=$opacity * 100);
+}
+
+@mixin tap-highlight-color($color) {
+  -webkit-tap-highlight-color: $color;
+  -moz-tap-highlight-color: $color;
+}
+
+@mixin text-shadow($shadow) {
+  text-shadow: $shadow;
+}
+
+@mixin transform($params) {
+  transform: $params;
+}
+
+@mixin transition($property, $duration, $timing) {
+  transition: $property $duration $timing;
+}
+
+@mixin multi-transition($transition...) {
+  transition: $transition;
+}
+
+@mixin keyframes($name) {
+  @-keyframes $name { @content };
+}
+
+@mixin animation-name($name...) {
+  animation-name: $name;
+}
+@mixin animation-duration($duration...) {
+  animation-duration: $duration;
+}
+@mixin animation-timing-function($timing...) {
+  animation-timing-function: $timing;
+}
+@mixin animation-iteration-count($count...) {
+  animation-iteration-count: $count;
+}
+@mixin animation-direction($direction...) {
+  animation-direction: $direction;
+}
+@mixin animation-fill-mode($fill...) {
+  animation-fill-mode: $fill;
+}
+@mixin animation-play-state($state...) {
+  animation-play-state: $state;
+}
+@mixin animation($animation...) {
+  animation: $animation;
+}
+
+@mixin animation ($delay, $duration, $anim-name) {
+  animation-delay: $delay;
+  animation-duration: $duration;
+  animation-name: $anim-name;
+  animation-fill-mode: forwards;
+}
+
+$hi-res: "(-webkit-min-device-pixel-ratio: 1.5),
+(min--moz-device-pixel-ratio: 1.5),
+(-o-min-device-pixel-ratio: 3/2),
+(min-device-pixel-ratio: 1.5),
+(min-resolution: 1.5dppx)";
+
+@mixin sprite (
+$path,
+$filename,
+$filetype,
+$width,
+$height,
+$x: 0,
+$y: 0,
+$bg-color: transparent ) {
+  background: url($path + $filename + '.' + $filetype) $x $y $bg-color;
+
+  @media #{$hi-res} {
+    & {
+      background: url($path + $filename + '@2x' + '.' + $filetype) $x $y $bg-color;
+      @include background-size($width, $height);
+    }
+  }
+}

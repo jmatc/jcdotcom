@@ -7,4 +7,3 @@ lib-cov
 coverage
 .grunt
 .lock-wscript
-node_modules

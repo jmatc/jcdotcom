@@ -1,7 +1,8 @@
 module.exports = function () {
   return {
     options: {
-      noCache: true
+      noCache: true,
+      style: 'compressed'
     },
     all: {
       files: [

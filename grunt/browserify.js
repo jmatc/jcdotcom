@@ -4,7 +4,8 @@ module.exports = function () {
       alias: {
         'jquery': './dist/js/vendor/jquery-min.js',
         'underscore': './dist/js/vendor/underscore-min.js',
-        'backbone': './dist/js/vendor/backbone-min.js'
+        'backbone': './dist/js/vendor/backbone-min.js',
+        'tooltip': './dist/js/vendor/tooltip.js',
       }
     },
     scripts: {

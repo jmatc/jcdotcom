@@ -1,0 +1,51 @@
+// syntax highlighting
+
+pre {
+  background-color: transparent;
+  font: {
+    family: monospace, serif;
+    size: 15px;
+  }
+  line-height: 2em;
+
+  code {
+    .ind-1 {
+      padding-left: 20px;
+    }
+    .ind-2 {
+      padding-left: 40px;
+    }
+    // comment
+    .cm {
+      color: #999988;
+      font: {
+        style: italic;
+      }
+    }
+    // function
+    .kd {
+      font: {
+        weight: 900;
+      }
+    }
+    &.lang-js {
+      // event handler
+      .evt {
+        color: #dd1144;
+      }
+      // i.e document
+      .nb {
+        color: #0086b3;
+      }
+      // param
+      .pm {
+        color: #0086b3;
+      }
+      // method
+      .md,
+      .var {
+        color: #47aa84;
+      }
+    }
+  }
+}

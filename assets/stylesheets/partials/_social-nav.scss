@@ -1,0 +1,88 @@
+#social-navigation {
+  left: -5px;
+  position: relative;
+
+  ul {
+    @extend %group;
+    margin: 0;
+  	padding: 0;
+  }
+  li {
+  	float: left;
+  	list-style: none;
+    margin-left: 15px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    a {
+      color: #555;
+      display: block;
+      font-size: 26px;
+      line-height: 1;
+      opacity: .9;
+      overflow: hidden;
+      -webkit-transition: color .1s linear;
+      -moz-transition: color .1s linear;
+      -o-transition: color .1s linear;
+      transition: color .1s linear;
+      text-decoration: none;
+      width: 27px;
+      visibility: hidden;
+
+      &:before {
+        visibility: visible;
+      }
+    }
+    a:hover {
+      color: $font;
+    }
+
+    &.linkedin {
+      a {
+        color: $linkedin;
+        &:hover {
+          color: darken($linkedin, 4%);
+        }
+      }
+    }
+    &.twitter {
+      a {
+        color: $twitter;
+        &:hover {
+          color: darken($twitter, 4%);
+        }
+      }
+    }
+    &.mail {
+      a {
+        color: $mail;
+        &:hover {
+          color: darken($mail, 4%);
+        }
+      }
+    }
+  }
+  li.tooltip {
+    opacity: .5;
+    transition: opacity .25s ease;
+    font: {
+      size: 18px;
+    }
+
+    &.shown {
+      opacity: 1;
+    }
+
+    &.linkedin {
+      color: $linkedin;
+    }
+    &.twitter {
+      color: $twitter;
+    }
+    &.mail {
+      color: $mail;
+    }
+  }
+}

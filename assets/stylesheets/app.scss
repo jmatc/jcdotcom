@@ -1,23 +1,29 @@
 @import
-  'helpers',
-  'color',
-  'typography';
+  'normalize',
+  'modules/colors',
+  'modules/mixins',
+  'modules/helpers',
+  'modules/keyframes',
+  'partials/typography',
+  'partials/syntax-highlighter',
+  'partials/masthead',
+  'partials/social-nav',
+  'partials/blog';
 
 html,
 body,
 #wrap {
-  height: 100%;
+  @extend %tall;
 }
 
 body {
   @extend %group;
-  background: $bg-main;
+
+  background-color: $bg-main;
   color: $font;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: antialiased;
   margin: 0;
   font: {
-    family: 'Open Sans', sans-serif;
+    family: $std-family;
     weight: $std-weight;
   }
   line-height: 1.5;
@@ -28,290 +34,85 @@ body {
   position: relative;
 }
 
+#progress-bar {
+  @include opacity(1);
+  @include transition(all, .5s, ease);
+
+  background-color: #00cf7f;
+  left: 0;
+  height: 2px;
+  position: absolute;
+  top: 0;
+  width: 0;
+  z-index: 500;
+
+  &.hidden {
+    @include opacity(0);
+  }
+}
+
 #wrap {
   @extend %group;
 
   .section {
-    box-sizing: border-box;
-    height: 100%;
+    @extend %tall;
+    @include box-sizing(border-box);
     position: relative;
 
     &.left,
     &.right {
-      float: left;
+      @extend %left;
     }
 
     &.left {
-      width: 48%;
-
-      .icon-circle-left {
-        color: #848484;
-        content: "\ea44";
-        cursor: pointer;
-        display: none;
-        font-family: 'jcdotcom';
-        font-size: 26px;
-        position: absolute;
-        right: 20px;
-        top: 20px;
-
-        &:hover {
-          color: #555;
-        }
-        &.shown {
-          display: block;
-        }
-      }
+      overflow: hidden;
+      width: 47%;
     }
+
     &.right {
       background-color: #fdfdfd;
-      border-left: 1px solid #f6f6f6;
+      border-left: 1px solid #f3f3f3;
+      -webkit-overflow-scrolling: touch;
       overflow-y: scroll;
       padding: 30px 30px 60px;
-      width: 52%;
-    }
-  }
-}
-
-#header-content {
-  height: 171px;
-  margin-top: -125px;
-  position: absolute;
-  top: 50%;
-  left: 10.15%;
-}
-
-#intro {
-  @extend %group;
-  margin-bottom: 27px;
-
-  .intro-text {
-    max-width: 460px;
-    position: relative;
-  }
-
-  .intro-text:after {
-    background: radial-gradient(circle farthest-side at 80%, rgba(255, 255, 255, 0.3) 0, rgba(250, 250, 250, 0) 100%);
-    content: '';
-    left: 0;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-
-  .title {
-    font: {
-      size: 68px;
-    }
-    margin: 0;
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 1);
-  }
-  .subhead {
-    font-weight: $std-weight;
-    margin: 18px 0 0;
-    text-shadow: 0 1px 0 #fff;
-
-    span {
-      color: #666;
-      font: {
-        size: 18px;
-        style: italic;
-      }
-      padding-left: 9px;
-    }
-  }
-}
-
-#social-navigation {
-  left: -5px;
-  position: relative;
-
-  ul {
-    @extend %group;
-    margin: 0;
-  	padding: 0;
-  }
-  li {
-  	float: left;
-  	list-style: none;
-    margin-left: 15px;
-
-    &:first-child {
-      margin-left: 0;
+      width: 53%;
     }
 
-    a {
-      color: #555;
-      display: block;
+    .icon-circle-left {
+      @include opacity(0);
+      @include transition(opacity, .15s, ease);
+      transition-delay: .15s;
+
+      color: #848484;
+      cursor: pointer;
       font-size: 26px;
-      line-height: 1;
-      opacity: .9;
-      overflow: hidden;
-      -webkit-transition: color .1s linear;
-      -moz-transition: color .1s linear;
-      -o-transition: color .1s linear;
-      transition: color .1s linear;
-      text-decoration: none;
-      width: 27px;
-      visibility: hidden;
-
-      &:before {
-        visibility: visible;
-      }
-    }
-    a:hover {
-      color: $font;
-    }
-
-    &.linkedin {
-      a {
-        color: $linkedin;
-        &:hover {
-          color: darken($linkedin, 4%);
-        }
-      }
-    }
-    &.twitter {
-      a {
-        color: $twitter;
-        &:hover {
-          color: darken($twitter, 4%);
-        }
-      }
-    }
-    &.mail {
-      a {
-        color: $mail;
-        &:hover {
-          color: darken($mail, 4%);
-        }
-      }
-    }
-  }
-  li.tooltip {
-    opacity: .5;
-    transition: opacity .25s ease;
-    font: {
-      size: 18px;
-    }
-
-    &.shown {
-      opacity: 1;
-    }
-
-    &.linkedin {
-      color: $linkedin;
-    }
-    &.twitter {
-      color: $twitter;
-    }
-    &.mail {
-      color: $mail;
-    }
-  }
-}
-
-.entry-title {
-  line-height: 1.3;
-
-  a {
-    color: $lt-font;
-  }
-  a:hover {
-    color: $link-hover;
-  }
-}
-
-#progress {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 3px;
-  background-color: #00cf7f;
-  transition: none;
-
-  &.loaded {
-    transition: width .5s linear;
-    width: 100%;
-  }
-}
-
-
-// blog styles
-
-.entry-image {
-  width: 40px;
-  height: 40px;
-  display: inline-block;
-  float: left;
-  margin: 0 15px 0 0;
-  border-radius: 20px;
-  box-shadow: 0 0 4px #ddd;
-  border: 1px solid transparent;
-  overflow: hidden;
-
-  img {
-    height: auto;
-    width: 100%;
-  }
-}
-
-#article-feed {
-  @extend %group;
-  @extend %flush;
-
-  & > li {
-    box-sizing: border-box;
-    float: left;
-    list-style: none;
-    padding: 20px 20px 0;
-    width: 50%;
-  }
-  .entry-title {
-    margin-bottom: 5px;
-  }
-  .post-date {
-    font-size: 14px;
-    padding-left: 20px;
-    position: relative;
-
-    .icon-clock {
-      color: #444;
-      font-size: 15px;
-      left: 0;
       position: absolute;
-      top: 0;
-    }
-  }
+      right: 30px;
+      top: 20px;
 
-  blockquote {
-    margin: 20px 0 0;
-    padding: 0;
-    p {
-      margin: 0;
+      &:hover {
+        color: #555;
+      }
+
+      &.shown {
+        @include opacity(1);
+        @include transition(opacity, .15s, ease);
+        transition-delay: .75s;
+      }
     }
   }
 }
 
-#article-detail {
-  background-color: #fdfdfd;
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
+#game-board {
+  @extend %group;
+  @extend %tall;
 
-  article {
-    padding: 40px 50px 40px;
-  }
-  .entry-title {
-    font-size: 32px;
-  }
+  background-color: $bg-grey;
 }
 
 #colophon {
+  @extend %group;
+
   bottom: 10px;
   left: 10.15%;
   position: absolute;

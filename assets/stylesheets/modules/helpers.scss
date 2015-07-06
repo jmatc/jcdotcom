@@ -1,0 +1,100 @@
+// ghosts
+
+%a-left {
+  text-align: left !important;
+}
+
+%a-right {
+  text-align: right !important;
+}
+
+%a-center {
+  text-align: center !important;
+}
+
+%left {
+  float: left !important;
+}
+
+%right {
+  float: right !important;
+}
+
+%group:before,
+%group:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+%flush {
+  margin: 0;
+  padding: 0;
+}
+
+%tall {
+  height: 100%;
+}
+
+%wide {
+  width: 100%;
+}
+
+%invisible {
+  @include opacity(0);
+  visibility: hidden;
+}
+
+%visible {
+  @include opacity(1);
+  visibility: visible;
+}
+
+%fadeIn {
+  @include transition(all, .0375s, ease);
+  @extend %visible;
+}
+
+%fadeOut {
+  @include transition(all, .0375s, ease);
+  @extend %invisible;
+}
+
+%show {
+  display: block !important;
+  position: relative !important;
+  left: 0 !important;
+  top: 0 !important;
+  visibility: visible !important;
+}
+
+%hide {
+  position: absolute !important;
+  left: -9999em !important;
+  top: -9999em !important;
+  visibility: hidden !important;
+}
+
+%bleed {
+  height: 100%;
+  width: 100%;
+}
+
+%center-block {
+  display: block;
+  margin: 0 auto;
+}
+
+%widen-fill {
+  bottom: 0;
+  height: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+
+%fluidimg {
+  height: auto;
+  width: 100%;
+}

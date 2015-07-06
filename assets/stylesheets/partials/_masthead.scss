@@ -1,0 +1,61 @@
+#header-content {
+  @extend %group;
+  @include opacity(1);
+  @include transition(opacity, .375s, ease);
+
+  height: 171px;
+  margin-top: -125px;
+  position: absolute;
+  top: 50%;
+  left: 10.15%;
+
+  #game-board.active & {
+    @include opacity(0);
+  }
+}
+
+#intro {
+  @extend %group;
+
+  margin-bottom: 27px;
+
+  .intro-text {
+    max-width: 460px;
+    position: relative;
+  }
+
+  .intro-text:after {
+    @extend %tall;
+    @extend %wide;
+
+    background: radial-gradient(circle farthest-side at 80%, rgba(246, 246, 246, 0.3) 0, rgba(250, 250, 250, 0) 100%);
+    content: '';
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+
+  .title,
+  .subhead {
+    @include text-shadow(0 1px 2px #fff);
+  }
+
+  .title {
+    font-size: 68px;
+    margin: 0;
+  }
+
+  .subhead {
+    font-weight: $std-weight;
+    margin: 18px 0 0;
+  }
+
+  .subhead span {
+    color: #666;
+    font: {
+      size: 18px;
+      style: italic;
+    }
+    padding-left: 9px;
+  }
+}

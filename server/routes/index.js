@@ -1,4 +1,5 @@
 module.exports = {
   apiPosts: require('./apiPosts'),
-  posts: require('./posts')
+  posts: require('./posts'),
+  error: require('./error')
 };
