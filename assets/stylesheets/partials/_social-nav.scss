@@ -4,8 +4,7 @@
 
   ul {
     @extend %group;
-    margin: 0;
-  	padding: 0;
+    @extend %flush;
   }
   li {
   	float: left;
@@ -21,12 +20,7 @@
       display: block;
       font-size: 26px;
       line-height: 1;
-      opacity: .9;
       overflow: hidden;
-      -webkit-transition: color .1s linear;
-      -moz-transition: color .1s linear;
-      -o-transition: color .1s linear;
-      transition: color .1s linear;
       text-decoration: none;
       width: 27px;
       visibility: hidden;
@@ -65,14 +59,15 @@
     }
   }
   li.tooltip {
-    opacity: .5;
-    transition: opacity .25s ease;
+    @include opacity(.5);
+    @include transition(opacity, .25s, ease);
+
     font: {
       size: 18px;
     }
 
     &.shown {
-      opacity: 1;
+      @include opacity(1);
     }
 
     &.linkedin {
