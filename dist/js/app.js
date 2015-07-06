@@ -1,8 +1,4 @@
 require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var $ = require('jquery'),
-    _ = require('underscore'),
-    Backbone = require('backbone');
-
 /**
  *  labelTip @type {Function}
  *  Shows social link/icon text as a tooltip
@@ -31,7 +27,7 @@ while (l > 0) {
 // get the router
 require('./router');
 
-},{"./router":7,"backbone":"backbone","jquery":"jquery","underscore":"underscore"}],2:[function(require,module,exports){
+},{"./router":7}],2:[function(require,module,exports){
 var $ = require('jquery'),
     _ = require('underscore'),
     Backbone = require('backbone'),
@@ -180,7 +176,7 @@ module.exports = PostsCollectionView = Backbone.View.extend({
   },
 
   setup: function () {
-    var element = this.$el
+    var element = this.$el,
         progressBar = this.progressBar,
 
     appendPosts = function (post) {
@@ -252,7 +248,7 @@ var returnHome = function (router) {
   var backLink = document.querySelector('.back');
 
   backLink.onclick = function (e) {
-    if (e) e.preventDefault();
+    e.preventDefault();
     return router.navigate('/', {
       trigger: true
     });
@@ -309,7 +305,7 @@ module.exports = AppRouter = Backbone.Router.extend({
   toggleBackLink: function () {
     var backLink = document.querySelector('.back');
 
-    if (Backbone.history.getFragment() == '') {
+    if (Backbone.history.getFragment() === '') {
       backLink.classList.remove('shown');
     } else {
       backLink.className += ' shown';
