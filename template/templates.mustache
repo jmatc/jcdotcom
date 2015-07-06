@@ -1,29 +1,31 @@
 <script id="feed" type="text/template">
-  <header>
-    <h2 class="entry-title">
-      <a href="<%= postSlug %>"><%= postTitle %></a>
-    </h2>
-    <div class="post-meta">
-      <span class="label"><span class="icon icon-clock"></span><time><%= postDate %></time></span>
-      <% if (typeof(postCat) !== 'undefined') { %>
-        <span class="label"><span class="icon icon-bookmark"></span><%= postCat %></span>
-      <% } %>
-    </div>
-  </header>
-  <blockquote>
-    <span class="entry-thumbnail">
-      <img src="img/<%= postImage %>" alt="" />
-    </span>
-    <%= postExcerpt %>
-  </blockquote>
+  <article itemscope itemType="http://schema.org/BlogPosting">
+    <header>
+      <h2 itemprop="headline" class="entry-title">
+        <a href="<%= postSlug %>"><%= postTitle %></a>
+      </h2>
+      <div class="post-meta">
+        <span class="label"><span class="icon icon-clock"></span><time itemprop="datePublished"><%= postDate %></time></span>
+        <% if (typeof(postCat) !== 'undefined') { %>
+          <span class="label"><span class="icon icon-bookmark"></span><%= postCat %></span>
+        <% } %>
+      </div>
+    </header>
+    <blockquote itemprop="description">
+      <span itemprop="image" class="entry-thumbnail">
+        <img src="img/<%= postImage %>" alt="" />
+      </span>
+      <%= postExcerpt %>
+    </blockquote>
+  </article>
 </script>
 
 <script id="single" type="text/template">
-  <article class="entry-content slug-<%= postSlug %>">
+  <article itemscope itemType="http://schema.org/BlogPosting" class="entry-content slug-<%= postSlug %>">
     <header>
-      <h1 class="entry-title"><%= postTitle %><span class="entry-thumbnail"><img src="img/<%= postImage %>" alt="" /></span></h1>
+      <h1 itemprop="headline" class="entry-title"><%= postTitle %><span itemprop="image" class="entry-thumbnail"><img src="img/<%= postImage %>" alt="" /></span></h1>
     </header>
-    <section>
+    <section itemprop="articleBody">
       <%= postContent %>
     </section>
   </article>

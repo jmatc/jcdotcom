@@ -7,8 +7,9 @@ $font: #333;
 $lt-font: lighten($font, 10%);
 // link colors
 $link: $font;
-$link-hover: #ff3e34;
+$link-hover: #848484;
+$link-secondary: #ff3e34;
 // social colors
 $linkedin: #007bb6;
 $twitter: #00aced;
-$mail: $link-hover;
+$mail: $link-secondary;
