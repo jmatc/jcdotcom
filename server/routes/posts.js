@@ -1,11 +1,10 @@
 var express = require('express'),
     router = express.Router(),
     info = require('../../package.json'),
-    dbPosts = require('../db/posts'),
     posts, credit;
 
 posts = function (req, res) {
-  res.render('index', dbPosts);
+  res.render('index', info);
 };
 
 credit = function (req, res) {
