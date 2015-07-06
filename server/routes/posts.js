@@ -5,7 +5,7 @@ var express = require('express'),
     posts, credit;
 
 posts = function (req, res) {
-  res.render('index', dbPosts);
+  res.render('client/index', dbPosts);
 };
 
 credit = function (req, res) {

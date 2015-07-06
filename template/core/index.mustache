@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="application-name" content="Admin: Jonathan Calvin: Front End Software Engineer">
+    <title>Admin: Jonathan Calvin: Front End Software Engineer</title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600">
+    <link rel="stylesheet" href="/style.css" media="screen" charset="utf-8" type="text/css">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-144x144.png" sizes="144x144">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-152x152.png" sizes="152x152">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+  </head>
+  <body>
+    <header id="masthead" role="banner">
+      <nav id="app-navigation">
+        <ul>
+          <li><a href="/admin" data-title="Dashboard" class="icon-home">Dashboard</a></li>
+          <li><a href="/admin/pages" class="icon-file-empty">Pages</a>
+            <ul class="sub">
+              <li><a href="/admin/pages" data-title="All pages">All pages</a></li>
+              <li><a href="/admin/pages/create" data-title="Create a page">Add a page</a></li>
+            </ul>
+          </li>
+          <li><a href="/admin/posts" class="icon-file-text2">Posts</a>
+            <ul class="sub">
+              <li><a href="/admin/posts">All posts</a></li>
+              <li><a href="/admin/posts/create">Add a post</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <footer id="site-info">
+      <p><span class="name"></span><span class="version">v</span></p>
+    </footer>
+    <script src="/lib/vendor/require.js" data-main="/config"></script>
+  </body>
+</html>
