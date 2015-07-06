@@ -83,17 +83,27 @@ img {
   .entry-title {
     margin-bottom: 5px;
   }
-  .post-date {
-    font-size: 14px;
-    padding-left: 20px;
-    position: relative;
+  .icon {
+    // color: #f43168;
+    // color: #44daa0;
+    // color: #2399d2;
+    color: #00ca98;
+    font-size: 15px;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+  .post-meta {
+    .label {
+      font-size: 14px;
+      margin-left: 10px;
+      padding-left: 20px;
+      position: relative;
+      text-transform: capitalize;
 
-    .icon-clock {
-      color: #44daa0;
-      font-size: 15px;
-      left: 0;
-      position: absolute;
-      top: 0;
+      &:first-child {
+        margin-left: 0;
+      }
     }
   }
 

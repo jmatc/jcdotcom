@@ -3,7 +3,12 @@
     <h2 class="entry-title">
       <a href="<%= postSlug %>"><%= postTitle %></a>
     </h2>
-    <span class="post-date"><span class="icon-clock"></span><%= postDate %></span>
+    <div class="post-meta">
+      <span class="label"><span class="icon icon-clock"></span><time><%= postDate %></time></span>
+      <% if (typeof(postCat) !== 'undefined') { %>
+        <span class="label"><span class="icon icon-bookmark"></span><%= postCat %></span>
+      <% } %>
+    </div>
   </header>
   <blockquote>
     <span class="entry-thumbnail">
