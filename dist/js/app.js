@@ -41,12 +41,6 @@ module.exports = PostDetailView = Backbone.View.extend({
   container: '#main',
   template: _.template($('#single').html()),
 
-  initialize: function () {
-    $('.intro-text').on('click', function () {
-      this.render();
-    }.bind(this));
-  },
-
   render: function (articleDetail) {
     var container = this.container;
 
