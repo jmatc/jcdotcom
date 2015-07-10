@@ -18,8 +18,8 @@ body,
 
 body {
   @extend %group;
-
-  background-color: $bg-main;
+  background: $bg-main url('../img/space.jpg') no-repeat;
+  background-size: contain;
   color: $font;
   margin: 0;
   font: {
@@ -108,6 +108,11 @@ body {
   @extend %tall;
 
   background-color: $bg-grey;
+
+  &.active {
+    transform: translate3d(50%, 0, 0) scale3d(0.85, 0.85, 1);
+  }
+
 }
 
 #colophon {

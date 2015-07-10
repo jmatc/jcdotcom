@@ -20,6 +20,7 @@ app
   .use(cookieParser())
   .use(express.static(path.join(__dirname, 'dist')))
   .use('/api/posts', routes.apiPosts)
+  .use('/api/insta', routes.instaFeed)
   .use(':postSlug', routes.posts)
   .use('/', routes.posts);
 

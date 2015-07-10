@@ -8,10 +8,6 @@
   position: absolute;
   top: 50%;
   left: 10.15%;
-
-  #game-board.active & {
-    @include opacity(0);
-  }
 }
 
 #intro {
