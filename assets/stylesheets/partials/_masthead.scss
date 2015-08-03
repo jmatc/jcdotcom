@@ -24,7 +24,7 @@
     @extend %tall;
     @extend %wide;
 
-    background: radial-gradient(circle farthest-side at 80%, rgba(246, 246, 246, 0.3) 0, rgba(250, 250, 250, 0) 100%);
+    background: radial-gradient(circle farthest-side at 80%, rgba(246, 246, 246, 0.2) 0, rgba(250, 250, 250, 0) 100%);
     content: '';
     left: 0;
     position: absolute;
@@ -44,14 +44,5 @@
   .subhead {
     font-weight: $std-weight;
     margin: 18px 0 0;
-  }
-
-  .subhead span {
-    color: #666;
-    font: {
-      size: 18px;
-      style: italic;
-    }
-    padding-left: 9px;
   }
 }

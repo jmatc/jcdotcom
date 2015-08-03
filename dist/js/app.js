@@ -22,7 +22,7 @@ while (l > 0) {
     this.removeChild(tipEl);
   };
   l--;
-};
+}
 
 // get the router
 require('./router');
