@@ -41,16 +41,13 @@ module.exports = PostDetailView = Backbone.View.extend({
   container: '#main',
   template: _.template($('#single').html()),
 
-  render: function (articleDetail) {
+  render: function(articleDetail) {
     var container = this.container;
 
     $(container).append(articleDetail);
 
-    setTimeout(function () {
-      this.$el.addClass('fade-in');
-    }.bind(this), 10);
+    this.$el.addClass('fade-in');
 
-    this.delegateEvents();
     return this;
   },
 
@@ -153,10 +150,7 @@ module.exports = PostsCollectionView = Backbone.View.extend({
     var container = this.container;
 
     $(container).append(postViews);
-
-    setTimeout(function () {
-      this.$el.addClass('fade-in');
-    }.bind(this), 10);
+    this.$el.addClass('fade-in');
 
     return this;
   },
@@ -164,6 +158,9 @@ module.exports = PostsCollectionView = Backbone.View.extend({
   setup: function () {
     var element = this.$el,
         progressBar = this.progressBar,
+        appendPosts,
+        collectionData,
+        collectionModels;
 
     appendPosts = function (post) {
       var postView = new PostView({
@@ -171,36 +168,15 @@ module.exports = PostsCollectionView = Backbone.View.extend({
       }),
       postViews = $(element).append(postView.render().el);
       this.render(postViews);
-    }.bind(this),
+    }.bind(this);
 
-    handleProgress = function (e) {
-      var percentComplete = 0;
-      if (e.lengthComputable) {
-        percentComplete = e.loaded / e.total;
-      }
-      $(progressBar).css({
-        width: Math.round(percentComplete * 100)+ '%'
-      });
-    },
-
-    collectionData = this.collection.fetch({
-      xhr: function() {
-        var xhr = $.ajaxSettings.xhr();
-        xhr.onprogress = handleProgress;
-        return xhr;
-      }
-    }),
-
+    collectionData = this.collection.fetch();
     collectionModels = this.collection.models;
 
     collectionData.done(function () {
       _.each(collectionModels, function (post) {
         appendPosts(post);
       }, this);
-
-      setTimeout(function() {
-        $(progressBar).addClass('hidden');
-      }, 500);
     });
   },
 
