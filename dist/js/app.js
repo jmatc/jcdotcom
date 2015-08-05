@@ -87,10 +87,8 @@ var $ = require('jquery'),
     PostView;
 
 module.exports = PostView = Backbone.View.extend({
-
   tagName: 'li',
   template: _.template($('#feed').html()),
-
   events: {
     'click .entry-title a': 'showPostDetail'
   },
