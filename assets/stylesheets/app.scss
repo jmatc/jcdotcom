@@ -18,8 +18,7 @@ body,
 
 body {
   @extend %group;
-  background: $bg-main url('../img/space.jpg') no-repeat;
-  background-size: contain;
+  background-color: $bg-grey;
   color: $font;
   margin: 0;
   font: {
@@ -112,7 +111,17 @@ body {
   &.active {
     transform: translate3d(50%, 0, 0) scale3d(0.85, 0.85, 1);
   }
+}
 
+#main {
+  @include multi-transition(opacity .675s ease, transform .2s cubic-bezier(0,1.01,.87,1.01));
+  @include transform(translateY(0));
+  @include opacity(1);
+
+  &.hidden {
+    @include opacity(0);
+    @include transform(translateY(45px));
+  }
 }
 
 #colophon {

@@ -214,6 +214,17 @@ module.exports = AppRouter = Backbone.Router.extend({
 
   initialize: function () {
     returnHome(this);
+    var $ = require('jquery');
+    setTimeout(function () {
+      if ($('#social-navigation').hasClass('hidden')) {
+        $('#social-navigation').removeClass('hidden');
+      }
+    }, 500);
+    setTimeout(function () {
+      if ($('#main').hasClass('hidden')) {
+        $('#main').removeClass('hidden');
+      }
+    }, 1250);
     this.on('route', function () {
       this.toggleBackLink();
     }.bind(this));
@@ -268,7 +279,7 @@ Backbone.history.start({
   pushState: true,
 });
 
-},{"./postDetailView":2,"./postModel":3,"./postsCollectionView":6,"backbone":"backbone"}],8:[function(require,module,exports){
+},{"./postDetailView":2,"./postModel":3,"./postsCollectionView":6,"backbone":"backbone","jquery":"jquery"}],8:[function(require,module,exports){
 var $ = require('jquery');
 
 var teardown = function (view, element) {

@@ -1,19 +1,22 @@
 #social-navigation {
   left: -5px;
-  position: relative;
 
   ul {
     @extend %group;
     @extend %flush;
-  }
-  li {
-  	float: left;
-  	list-style: none;
-    margin-left: 15px;
 
-    &:first-child {
-      margin-left: 0;
-    }
+    height: 27px;
+    position: relative;
+    width: 155px;
+  }
+
+  li {
+    @include opacity(1);
+    @include transform(translate3d(0, 0, 0));
+    @include multi-transition(opacity 2s ease, transform .65s cubic-bezier(0,1.01,.87,1.01));
+
+  	list-style: none;
+    position: absolute;
 
     a {
       color: #555;
@@ -29,11 +32,14 @@
         visibility: visible;
       }
     }
+
     a:hover {
       color: $font;
     }
 
     &.linkedin {
+      @include transform(translate3d(41px, 0, 0));
+
       a {
         color: $linkedin;
         &:hover {
@@ -42,6 +48,8 @@
       }
     }
     &.twitter {
+      @include transform(translate3d(82px, 0, 0));
+
       a {
         color: $twitter;
         &:hover {
@@ -50,6 +58,8 @@
       }
     }
     &.mail {
+      @include transform(translate3d(123px, 0, 0));
+
       a {
         color: $mail;
         &:hover {
@@ -58,6 +68,26 @@
       }
     }
   }
+
+  &.hidden {
+    li {
+      @include opacity(0);
+
+      &.github {
+        @include transform(translate3d(41px, 0, 0));
+      }
+      &.linkedin {
+        @include transform(translate3d(95px, 0, 0));
+      }
+      &.twitter {
+        @include transform(translate3d(155px, 0, 0));
+      }
+      &.mail {
+        @include transform(translate3d(216px, 0, 0));
+      }
+    }
+  }
+
   li.tooltip {
     @include opacity(.5);
     @include transition(opacity, .25s, ease);
