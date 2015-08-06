@@ -205,6 +205,15 @@ var returnHome = function (router) {
   };
 };
 
+var forceReflow = function (elem) {
+  var $ = require('jquery');
+  var el = elem, i = 0, max = elem.length;
+
+  for (; i < max; i += 1) {
+    $(elem[i]).offsetHeight;
+  }
+};
+
 module.exports = AppRouter = Backbone.Router.extend({
   routes: {
     '': 'showPostsCollection',
@@ -215,11 +224,13 @@ module.exports = AppRouter = Backbone.Router.extend({
   initialize: function () {
     returnHome(this);
     var $ = require('jquery');
-    setTimeout(function () {
-      if ($('#social-navigation').hasClass('hidden')) {
-        $('#social-navigation').removeClass('hidden');
-      }
-    }, 500);
+    forceReflow($('#social-navigation'));
+    $('#social-navigation').removeClass('hidden');
+    // setTimeout(function () {
+    //   if ($('#social-navigation').hasClass('hidden')) {
+    //     $('#social-navigation').removeClass('hidden');
+    //   }
+    // }, 500);
     setTimeout(function () {
       if ($('#main').hasClass('hidden')) {
         $('#main').removeClass('hidden');
